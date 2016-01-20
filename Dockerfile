@@ -19,5 +19,8 @@ COPY lighttpd.conf /etc/lighttpd/lighttpd.conf
 
 COPY entrypoint.sh /entrypoint.sh
 
+ENV TARGET_SERVER=127.0.0.1
+ENV TARGET_PORT=8000
+
 ENTRYPOINT [ "/entrypoint.sh" ]
 #CMD [ "bash" ]
