@@ -27,6 +27,9 @@ It presumably will not fit for you, but it is possible to tune it. If you need s
 
 This [xxaxxelxx/xx_reflector](https://hub.docker.com/r/xxaxxelxx/xx_reflector/) repo is an essential part of a complex compound used for streaming.
 In case of player machines overload this module reflects incoming client requests back to the loadbalancer.
+In standard working mode it redirects all incoming port 80 requests to the local icecast port 8000.
+In case of overload it modifies the players iptables to redirect all incoming port 8000 requests to the local reflector (port 80). The reflector redirects them to the loadbalancer for furter distribution.
+It prevents direct access from clients avoiding the loadbalancer (if the playing machine is to busy).
 
 ### Example
 ```bash
